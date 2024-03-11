@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.heading {
+  /* font-family: "Courier New", Courier, monospace; */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 1160px;
+  max-height: 80vh;
+  margin: 20px;
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+th,
+td {
+  height: 56px;
+  border-bottom: 1.5px solid #ddd;
+  padding: 0 16px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+th {
+  background-color: #272727;
+  color: white;
+}
+
+.fixed-column {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+td.fixed-column {
+  background-color: #fafafa;
+}
+
+.actionsTH {
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+
+.actions button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  vertical-align: top;
+  color: white;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+.actions button:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.addButton {
+  background-color: #33b249;
+  margin-right: 10px;
+}
+
+.vendorButton {
+  background-color: #43a98c;
+  margin-right: 10px;
+}
+
+.editButton {
+  background-color: #4681f4;
+  padding-right: 10px;
+}
+
+.addIcon,
+.editIcon,
+.vendorIcon {
+  padding-left: 8px;
+  font-size: 14px;
+}
+
+.addButton:hover {
+  background-color: #2a9d3d;
+}
+
+.vendorButton:hover {
+  background-color: #349378;
+}
+
+.editButton:hover {
+  background-color: #396cd1;
+}
+
+.description {
+  max-width: 350px;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+tr:hover td.fixed-column {
+  background-color: #f1f1f1;
+}
+
+.selectBox {
+  width: 40px;
+  height: 16px;
+  accent-color: #42a642;
+  cursor: pointer;
+}
+
+.description:hover {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 20px;
+}
+
+.title:hover,
+.locationTH:hover {
+  max-width: none;
+}
+
+@media screen and (max-width: 1160px) {
+  .container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
