@@ -168,9 +168,6 @@ tr:hover td.fixed-column {
   }
 }
 
-@media screen and (max-width: 760px) {
-}
-
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
