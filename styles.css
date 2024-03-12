@@ -10,21 +10,20 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .heading {
-  /* font-family: "Courier New", Courier, monospace; */
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .container {
   overflow: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 1160px;
+  width: 100vw;
+  height: 100vh;
+  max-width: 85vw;
   max-height: 80vh;
-  margin: 20px;
+  margin: 1.25rem;
   background-color: white;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -38,19 +37,19 @@ table {
 thead {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 12;
 }
 
 th,
 td {
-  height: 56px;
-  border-bottom: 1.5px solid #ddd;
-  padding: 0 16px;
+  height: 3.5rem;
+  border-bottom: 0.094rem solid #ddd;
+  padding: 0 1rem;
   text-align: left;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 200px;
+  max-width: 12.5rem;
 }
 
 th {
@@ -70,66 +69,102 @@ td.fixed-column {
 
 .actionsTH {
   text-align: center;
+  position: sticky;
+  right: 0;
 }
 
 .actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 400px;
+  overflow: visible;
+  text-align: center;
+  position: sticky;
+  right: 0;
+  z-index: 1;
+  background-color: white;
 }
 
-.actions button {
-  padding: 10px 15px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
+tr:hover td.actions {
+  z-index: 10;
+  background-color: #f1f1f1;
+}
+
+.actions .dropdown {
+  position: relative;
+  display: inline-block;
+  border-radius: 1.625em;
+  border-bottom-left-radius: 0;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.dropIcon {
+  font-size: 1.35rem;
+}
+
+.dropdownButton {
   border: none;
-  vertical-align: top;
-  color: white;
-  transition: background-color 0.15s, box-shadow 0.15s;
+  background-color: inherit;
+  cursor: pointer;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 0.625rem;
+  border-bottom-left-radius: 0;
 }
 
-.actions button:hover {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+.dropdown:hover {
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.addButton {
-  background-color: #33b249;
-  margin-right: 10px;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.vendorButton {
-  background-color: #43a98c;
-  margin-right: 10px;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  z-index: 1;
+  right: 0.75rem;
 }
 
-.editButton {
-  background-color: #4681f4;
-  padding-right: 10px;
+table tr:nth-last-child(-n + 3) .dropdown-content {
+  right: 1.125rem;
+  bottom: 1.865rem;
 }
 
-.addIcon,
-.editIcon,
-.vendorIcon {
-  padding-left: 8px;
-  font-size: 14px;
+table tr:nth-last-child(-n + 3) .dropdownButton {
+  border-bottom-left-radius: 0.625rem;
+  border-top-left-radius: 0;
 }
 
-.addButton:hover {
-  background-color: #2a9d3d;
+table tr:nth-last-child(-n + 3) .dropdown {
+  border-bottom-left-radius: 0.625rem;
+  border-top-left-radius: 0;
 }
 
-.vendorButton:hover {
-  background-color: #349378;
+.dropdown-content a {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  padding: 0.75rem 0.875rem;
+  font-size: 0.96rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 0.0125rem solid rgb(223, 223, 223);
+  transition: background-color 0.15s;
 }
 
-.editButton:hover {
-  background-color: #396cd1;
+.dropdown-content a span {
+  padding-right: 1.5rem;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
 }
 
 .description {
-  max-width: 350px;
+  max-width: 21.875rem;
 }
 
 tr:hover {
@@ -141,8 +176,8 @@ tr:hover td.fixed-column {
 }
 
 .selectBox {
-  width: 40px;
-  height: 16px;
+  width: 2.5rem;
+  height: 1rem;
   accent-color: #42a642;
   cursor: pointer;
 }
@@ -153,7 +188,7 @@ tr:hover td.fixed-column {
   text-overflow: initial;
   text-align: justify;
   text-justify: inter-word;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .title:hover,
@@ -163,24 +198,24 @@ tr:hover td.fixed-column {
 
 @media screen and (max-width: 1160px) {
   .container {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 3.125rem;
+    margin-right: 3.125rem;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 0.375rem;
+  height: 0.375rem;
 }
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 30px;
+  border-radius: 1.875rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #cecece;
-  border-radius: 30px;
+  border-radius: 1.875rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
