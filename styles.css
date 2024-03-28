@@ -19,7 +19,7 @@ body {
 
 .container {
   overflow: auto;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   max-width: 85vw;
   max-height: 80vh;
@@ -128,17 +128,17 @@ tr:hover td.actions {
   right: 0.75rem;
 }
 
-table tr:nth-last-child(-n + 3) .dropdown-content {
+.dropdown-content-bottom {
   right: 1.125rem;
   bottom: 1.865rem;
 }
 
-table tr:nth-last-child(-n + 3) .dropdownButton {
+.dropdownButton-bottom {
   border-bottom-left-radius: 0.625rem;
   border-top-left-radius: 0;
 }
 
-table tr:nth-last-child(-n + 3) .dropdown {
+.dropdown-bottom {
   border-bottom-left-radius: 0.625rem;
   border-top-left-radius: 0;
 }
@@ -164,7 +164,7 @@ table tr:nth-last-child(-n + 3) .dropdown {
 }
 
 .description {
-  max-width: 21.875rem;
+  max-width: 21rem;
 }
 
 tr:hover {
@@ -184,16 +184,45 @@ tr:hover td.fixed-column {
 
 .description:hover {
   white-space: normal;
-  overflow: visible;
-  text-overflow: initial;
   text-align: justify;
-  text-justify: inter-word;
   padding: 1.25rem;
 }
 
 .title:hover,
 .locationTH:hover {
   max-width: none;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sortable-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sortable-heading {
+  padding-right: 1rem;
+}
+
+.sort-arrows {
+  position: relative;
+}
+
+.arrow-up,
+.arrow-down {
+  position: absolute;
+  font-size: 0.875rem;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.arrow-up {
+  bottom: 0.365rem;
+}
+.arrow-down {
+  top: 0.365rem;
 }
 
 @media screen and (max-width: 1160px) {
