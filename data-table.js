@@ -16,6 +16,8 @@ class DataTable {
     let prevSortable;
 
     // event listeners
+
+    // for data sorting by clicking headers
     tableEl.querySelectorAll("th.sortable").forEach((th) => {
       th.addEventListener("click", (e) => {
         const sortableEl_id = Object.values(th.dataset)[0];
@@ -40,6 +42,7 @@ class DataTable {
       });
     });
 
+    // for select box to select a row
     tableBody.querySelectorAll(".selectBox").forEach((checkbox) => {
       checkbox.addEventListener("change", () => {
         const product_id = checkbox.getAttribute("data-id").split("-")[1];
