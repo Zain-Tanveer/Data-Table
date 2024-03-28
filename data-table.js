@@ -4,10 +4,12 @@ class DataTable {
   // constructor
   constructor() {
     this.filteredProducts = products;
+    this.checkboxProducts = [];
     this.sortDirection = 1; // Sort direction: 1 for ascending, -1 for descending
     this.sortColumn = ""; // Column to sort
 
     const tableEl = document.getElementById("data-table");
+    const tableBody = document.getElementById("table-body");
 
     this.renderTable();
 
@@ -37,6 +39,27 @@ class DataTable {
         }
       });
     });
+
+    tableBody.querySelectorAll(".selectBox").forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const product_id = checkbox.getAttribute("data-id").split("-")[1];
+        console.log(typeof product_id);
+        if (checkbox.checked) {
+          this.checkboxProducts.push(
+            this.filteredProducts.find(
+              (product) => product.id === parseInt(product_id)
+            )
+          );
+          console.log(this.checkboxProducts);
+          this.renderSelectProducts();
+        } else {
+          this.checkboxProducts = this.checkboxProducts.filter(
+            (product) => product.id !== parseInt(product_id)
+          );
+          this.renderSelectProducts();
+        }
+      });
+    });
   }
 
   // function for rendering table
@@ -46,7 +69,7 @@ class DataTable {
 
     for (let [index, product] of this.filteredProducts.entries()) {
       const tr = document.createElement("tr");
-      const checkboxEl = DataTable.#createCheckbox();
+      const checkboxEl = DataTable.#createCheckbox(product.id);
 
       tr.appendChild(checkboxEl);
 
@@ -81,6 +104,14 @@ class DataTable {
     }
   }
 
+  renderSelectProducts() {
+    const selectedProductsDiv = document.getElementById("selected-products");
+    selectedProductsDiv.innerHTML = "";
+    this.checkboxProducts.forEach((product) => {
+      selectedProductsDiv.innerHTML += `<p class="selected-product">${product.id} , ${product.name} , ${product.title}</p>`;
+    });
+  }
+
   // handle sorting
   handleSort(column) {
     if (column === this.sortColumn) {
@@ -113,13 +144,14 @@ class DataTable {
   }
 
   // function for creating the checkbox td
-  static #createCheckbox() {
+  static #createCheckbox(data_id) {
     const td = document.createElement("td");
     td.classList.add("fixed-column");
 
     const inputEl = document.createElement("input");
     inputEl.setAttribute("type", "checkbox");
     inputEl.classList.add("selectBox");
+    inputEl.setAttribute("data-id", `selectbox-${data_id}`);
 
     td.appendChild(inputEl);
 

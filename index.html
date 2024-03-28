@@ -12,7 +12,10 @@
   </head>
   <body>
     <h1 class="heading">Data Table</h1>
-    <div class="container">
+    <div class="filters">
+      <p>filters go here</p>
+    </div>
+    <div class="table-container">
       <table class="table" id="data-table">
         <thead>
           <tr>
@@ -49,15 +52,15 @@
             <th data-id="product_type">Product Type</th>
             <th data-id="shipping_rates">Shipping Rates</th>
             <th data-id="refill_limit">Refill Limit</th>
-            <th data-id="product_location" class="locationTH">
-              Product Location Address
-            </th>
+            <th data-id="product_location">Address</th>
             <th class="actionsTH">Actions</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
       </table>
     </div>
+
+    <div id="selected-products" class="selected-products"></div>
 
     <script src="data-table.js" type="module"></script>
   </body>

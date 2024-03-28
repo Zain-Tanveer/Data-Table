@@ -17,12 +17,12 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.container {
+.table-container {
   overflow: auto;
   width: 100%;
   height: 100vh;
   max-width: 85vw;
-  max-height: 80vh;
+  max-height: 65vh;
   margin: 1.25rem;
   background-color: white;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -188,8 +188,7 @@ tr:hover td.fixed-column {
   padding: 1.25rem;
 }
 
-.title:hover,
-.locationTH:hover {
+.title:hover {
   max-width: none;
 }
 
@@ -225,8 +224,22 @@ tr:hover td.fixed-column {
   top: 0.365rem;
 }
 
+.selected-products {
+  max-width: 85vw;
+  width: 100%;
+}
+
+.selected-product {
+  padding: 1rem;
+  font-weight: bold;
+  background: #363636;
+  width: fit-content;
+  color: white;
+  margin-block: 0.75rem;
+}
+
 @media screen and (max-width: 1160px) {
-  .container {
+  .table-container {
     margin-left: 3.125rem;
     margin-right: 3.125rem;
   }
