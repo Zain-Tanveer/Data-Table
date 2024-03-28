@@ -13,7 +13,31 @@
   <body>
     <h1 class="heading">Data Table</h1>
     <div class="filters">
-      <p>filters go here</p>
+      <div>
+        <label for="filter-options" class="filter-label">Filters :</label>
+        <select name="filter-options" id="filter-options">
+          <option value="id">ID</option>
+          <option value="name">Name</option>
+          <option value="title">Title</option>
+          <option value="vendor">Vendor</option>
+          <option value="in_stock">In Stock</option>
+          <option value="buying_price">Buying Price</option>
+          <option value="sale_price">Sale Price</option>
+          <option value="purchase_quantity">Purchase Quantity</option>
+          <option value="product_type">Product Type</option>
+          <option value="shipping_rates">Shipping Rates</option>
+          <option value="refill_limit">Refill Limit</option>
+          <option value="product_location">Address</option>
+        </select>
+      </div>
+      <div class="search">
+        <input
+          type="text"
+          id="search-text"
+          name="search-text"
+          placeholder="search..."
+        />
+      </div>
     </div>
     <div class="table-container">
       <table class="table" id="data-table">

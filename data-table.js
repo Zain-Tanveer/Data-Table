@@ -63,14 +63,42 @@ class DataTable {
         }
       });
     });
+
+    // for filtering data
+    const searchEl = document.getElementById("search-text");
+    const filterOptionsEl = document.getElementById("filter-options");
+    searchEl.addEventListener("keyup", () => {
+      const filterBy = filterOptionsEl.value;
+      const searchValue = searchEl.value;
+
+      if (searchValue !== "") {
+        const filterProducts = this.filteredProducts.filter((product) => {
+          if (typeof product[filterBy] === "string") {
+            return product[filterBy]
+              .toLowerCase()
+              .includes(searchValue.toLowerCase());
+          } else {
+            return product[filterBy].toString().includes(searchValue);
+          }
+        });
+
+        this.renderTable(filterProducts);
+      } else {
+        this.renderTable();
+      }
+    });
+
+    filterOptionsEl.addEventListener("change", () => {
+      searchEl.value = "";
+    });
   }
 
   // function for rendering table
-  renderTable() {
+  renderTable(products = this.filteredProducts) {
     const tbodyEl = document.getElementById("table-body");
     tbodyEl.innerHTML = "";
 
-    for (let [index, product] of this.filteredProducts.entries()) {
+    for (let [index, product] of products.entries()) {
       const tr = document.createElement("tr");
       const checkboxEl = DataTable.#createCheckbox(product.id);
 
